@@ -371,9 +371,7 @@ function Contact() {
         <div className="mt-16 grid grid-cols-12 gap-6">
           <div className="col-span-12 md:col-span-7">
             <a href="mailto:anrdh86@gmail.com" className="group block">
-              <span className="display block text-[clamp(1.5rem,5vw,4.5rem)] transition-colors group-hover:text-signal break-all">
-                anrdh86@gmail.com <ArrowUpRight className="ml-2 inline h-7 w-7 align-top" strokeWidth={2} />
-              </span>
+              <span className="display block text-[clamp(1.5rem,5vw,4.5rem)] transition-colors group-hover:text-signal break-all">anrdh86@gmail.com<ArrowUpRight className="ml-2 inline h-7 w-7 align-top" strokeWidth={2} /></span>
             </a>
           </div>
           <div className="col-span-12 grid grid-cols-2 gap-px self-start bg-rule md:col-span-5">
