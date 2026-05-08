@@ -5,6 +5,21 @@ export const Route = createFileRoute("/")(({
   head: () => ({
     meta: [
       { title: "Arkyn Labs — A studio for precise software" },
+      { name: "description", content: "Arkyn Labs is an independent studio by Anirudh Singh Rathore, building Reelcast Studio (URL→motion graphics) and Config-Engine (AI cloud game testing)." },
+      { property: "og:type", content: "website" },
+      { property: "og:title", content: "Arkyn Labs — A studio for precise software" },
+      { property: "og:description", content: "Independent studio shipping Reelcast Studio and Config-Engine. Quiet tools, sharp execution." },
+      { property: "og:site_name", content: "Arkyn Labs" },
+      { property: "og:url", content: "https://arkynlabs.com" },
+      { property: "og:image", content: "https://arkynlabs.com/og.png" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:site", content: "@anrdh86" },
+      { name: "twitter:creator", content: "@anrdh86" },
+      { name: "twitter:title", content: "Arkyn Labs — A studio for precise software" },
+      { name: "twitter:description", content: "Reelcast Studio turns URLs into motion graphics. Config-Engine is AI cloud game testing. By Anirudh Singh Rathore." },
+      { name: "twitter:image", content: "https://arkynlabs.com/og.png" },
     ],
   }),
   component: Landing,
@@ -152,47 +167,34 @@ function Marquee() {
 function ReelcastCard() {
   return (
     <article style={{ background: "#F5F5F0", position: "relative" }} className="border-b border-rule overflow-hidden rc-card">
-      {/* animated neon scan line */}
       <div className="rc-scan" aria-hidden />
-      <div className="grid grid-cols-1 md:grid-cols-2 relative">
-        <div className="flex flex-col justify-between p-10 md:p-14" style={{ borderRight: "1px solid rgba(0,0,0,0.08)" }}>
-          <div>
-            <div style={{ display: "inline-flex", alignItems: "center", gap: 8, borderRadius: 100, border: "1px solid rgba(0,0,0,0.1)", padding: "7px 16px", marginBottom: 36 }}>
-              <span style={{ width: 7, height: 7, borderRadius: "50%", background: "#E8FF00", boxShadow: "0 0 10px #E8FF00, 0 0 18px rgba(232,255,0,0.6)", display: "inline-block", flexShrink: 0, animation: "rcpulse 2s ease-in-out infinite" }} />
-              <span className="font-mono-label" style={{ color: "#666" }}>Live — P/01</span>
-            </div>
-            <h3 className="display rc-title" style={{ fontSize: "clamp(2.2rem,4.5vw,3.8rem)", lineHeight: 0.93, letterSpacing: "-0.04em", color: "#0A0A0A", marginBottom: 10 }}>
-              reelcast<span className="rc-dot">.</span>studio
-            </h3>
-            <p className="font-mono-label" style={{ color: "#999", marginBottom: 24 }}>Video Automation Platform</p>
-            <p style={{ fontSize: 15, lineHeight: 1.75, color: "#666", maxWidth: 360, fontWeight: 300 }}>
-              Drop a URL. We read the brand, extract the signal, and render a 30-second kinetic motion-graphics promo — instantly.
-            </p>
+      <div className="flex flex-col justify-between p-10 md:p-16 relative">
+        <div>
+          <div style={{ display: "inline-flex", alignItems: "center", gap: 8, borderRadius: 100, border: "1px solid rgba(0,0,0,0.1)", padding: "7px 16px", marginBottom: 36 }}>
+            <span style={{ width: 7, height: 7, borderRadius: "50%", background: "#E8FF00", boxShadow: "0 0 10px #E8FF00, 0 0 18px rgba(232,255,0,0.6)", display: "inline-block", flexShrink: 0, animation: "rcpulse 2s ease-in-out infinite" }} />
+            <span className="font-mono-label" style={{ color: "#666" }}>Live — P/01</span>
           </div>
-          <a href="https://reelcast-studio.vercel.app/" target="_blank" rel="noreferrer" className="group mt-10 inline-flex items-center gap-2 w-fit rc-cta"
-            style={{ background: "#0A0A0A", color: "#FAFAF8", padding: "13px 24px", fontFamily: "JetBrains Mono, monospace", fontSize: 11, letterSpacing: "0.1em", textTransform: "uppercase", textDecoration: "none" }}>
-            Open reelcast.studio <ArrowUpRight style={{ width: 14, height: 14 }} strokeWidth={2.5} />
-          </a>
+          <h3 className="display rc-title" style={{ fontSize: "clamp(2.2rem,5vw,4.5rem)", lineHeight: 0.93, letterSpacing: "-0.04em", color: "#0A0A0A", marginBottom: 14 }}>
+            reelcast<span className="rc-dot">.</span>studio
+          </h3>
+          <p className="font-mono-label" style={{ color: "#999", marginBottom: 28 }}>Video Automation Platform</p>
+          <p className="display" style={{ fontSize: "clamp(1.4rem,2.6vw,2.2rem)", lineHeight: 1.08, letterSpacing: "-0.035em", color: "#0A0A0A", marginBottom: 22, maxWidth: 640 }}>
+            Turn any website into a <em className="rc-em" style={{ fontStyle: "italic", fontWeight: 700 }}>motion graphics</em> promo.
+          </p>
+          <p style={{ fontSize: 15, lineHeight: 1.75, color: "#666", maxWidth: 520, fontWeight: 300 }}>
+            Drop a URL. We read the brand, extract the signal, and render a 30-second kinetic motion-graphics promo — instantly.
+          </p>
         </div>
-        <div className="flex flex-col justify-between p-10 md:p-14 relative overflow-hidden" style={{ background: "#EDECEA" }}>
-          <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle, rgba(232,255,0,0.45) 1px, transparent 1px)", backgroundSize: "28px 28px", maskImage: "linear-gradient(to bottom, black 30%, transparent 100%)", WebkitMaskImage: "linear-gradient(to bottom, black 30%, transparent 100%)", pointerEvents: "none", animation: "rcdrift 14s ease-in-out infinite" }} />
-          <div style={{ display: "inline-flex", alignItems: "center", gap: 8, borderRadius: 100, border: "1px solid rgba(0,0,0,0.1)", padding: "8px 18px", width: "fit-content", position: "relative", background: "rgba(255,255,255,0.4)" }}>
-            <span style={{ fontSize: 12 }}>✦</span><span className="font-mono-label" style={{ color: "#888" }}>Paste · Analyze · Watch</span>
-          </div>
-          <div style={{ position: "relative" }}>
-            <p className="display" style={{ fontSize: "clamp(1.7rem,3vw,2.7rem)", lineHeight: 1.06, letterSpacing: "-0.035em", color: "#0A0A0A", marginBottom: 18 }}>
-              Turn any website<br />into a <em className="rc-em" style={{ fontStyle: "italic", fontWeight: 700 }}>motion graphics</em> promo.
-            </p>
-          </div>
-        </div>
+        <a href="https://reelcast-studio.vercel.app/" target="_blank" rel="noreferrer" className="group mt-10 inline-flex items-center gap-2 w-fit rc-cta"
+          style={{ background: "#0A0A0A", color: "#FAFAF8", padding: "13px 24px", fontFamily: "JetBrains Mono, monospace", fontSize: 11, letterSpacing: "0.1em", textTransform: "uppercase", textDecoration: "none" }}>
+          Open reelcast.studio <ArrowUpRight style={{ width: 14, height: 14 }} strokeWidth={2.5} />
+        </a>
       </div>
       <style>{`
         @keyframes rcpulse{0%,100%{opacity:1}50%{opacity:0.35}}
-        @keyframes rcdrift{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(6px,-4px,0)}}
         @keyframes rcsweep{
           0%{transform:translateX(-100%);opacity:0}
-          15%{opacity:1}
-          85%{opacity:1}
+          15%{opacity:1}85%{opacity:1}
           100%{transform:translateX(100%);opacity:0}
         }
         @keyframes rcshine{
@@ -229,29 +231,55 @@ function ReelcastCard() {
 function ConfigCard() {
   const bullets = ["Cloud-based hardware matrices", "Automated stress & perf runs", "AI failure triage", "Made for indie & mid-core teams"];
   return (
-    <article className="bg-paper">
-      <div className="grid grid-cols-12 gap-6 py-10 md:py-14">
+    <article className="relative overflow-hidden ce-card" style={{ background: "#0A0A0A", color: "#FAFAF8" }}>
+      <div className="ce-grid" aria-hidden />
+      <div className="grid grid-cols-12 gap-6 px-10 py-14 md:px-14 md:py-16 relative">
         <div className="col-span-12 flex flex-col gap-3 md:col-span-3">
-          <MonoLabel>P/02</MonoLabel>
-          <div className="flex items-center gap-2"><span className="h-1.5 w-1.5 bg-ink/40" /><MonoLabel>In development</MonoLabel></div>
-          <MonoLabel className="!text-ink/40">config-engine</MonoLabel>
+          <span className="font-mono-label" style={{ color: "rgba(250,250,248,0.5)" }}>P/02</span>
+          <div className="flex items-center gap-2">
+            <span style={{ display: "inline-block", width: 7, height: 7, borderRadius: "50%", background: "#3B82F6", boxShadow: "0 0 10px #3B82F6, 0 0 22px rgba(59,130,246,0.6)", animation: "cepulse 2.4s ease-in-out infinite" }} />
+            <span className="font-mono-label" style={{ color: "rgba(250,250,248,0.7)" }}>In development</span>
+          </div>
+          <span className="font-mono-label" style={{ color: "rgba(250,250,248,0.3)" }}>config-engine</span>
         </div>
         <div className="col-span-12 md:col-span-6">
-          <h3 className="display whitespace-pre-line text-[clamp(1.75rem,4vw,3.25rem)]">{"Test your game across\nevery configuration."}</h3>
-          <p className="mt-6 max-w-xl text-base leading-relaxed text-ink/70 md:text-lg">An AI-powered cloud lab for game developers. find the regression before your players do.</p>
-          <a href="#contact" className="mt-8 inline-flex items-center gap-2 border-b-2 border-ink pb-1 transition-colors hover:border-signal hover:text-signal">
+          <h3 className="display whitespace-pre-line" style={{ fontSize: "clamp(1.75rem,4vw,3.25rem)", lineHeight: 1, letterSpacing: "-0.04em" }}>
+            {"Test your game across\nevery "}<em style={{ fontStyle: "italic", fontWeight: 700, background: "linear-gradient(90deg,#3B82F6,#9DC4FF,#3B82F6)", backgroundSize: "200% 100%", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent", animation: "cegrad 6s linear infinite" }}>configuration.</em>
+          </h3>
+          <p className="mt-6 max-w-xl text-base leading-relaxed md:text-lg" style={{ color: "rgba(250,250,248,0.7)" }}>
+            An AI-powered cloud lab for game developers. Find the regression before your players do.
+          </p>
+          <a href="#contact" className="mt-8 inline-flex items-center gap-2 ce-cta">
             <span className="font-mono-label">Join the waitlist</span> <ArrowUpRight className="h-4 w-4" strokeWidth={2.5} />
           </a>
         </div>
         <ul className="col-span-12 flex flex-col gap-3 md:col-span-3">
           {bullets.map((b) => (
-            <li key={b} className="flex items-start gap-3 border-t border-rule pt-3">
-              <Plus className="mt-1 h-3 w-3 text-signal" strokeWidth={2.5} />
-              <span className="text-sm text-ink/80">{b}</span>
+            <li key={b} className="flex items-start gap-3 pt-3" style={{ borderTop: "1px solid rgba(250,250,248,0.15)" }}>
+              <Plus className="mt-1 h-3 w-3" strokeWidth={2.5} style={{ color: "#3B82F6" }} />
+              <span className="text-sm" style={{ color: "rgba(250,250,248,0.85)" }}>{b}</span>
             </li>
           ))}
         </ul>
       </div>
+      <style>{`
+        @keyframes cepulse{0%,100%{opacity:1}50%{opacity:0.35}}
+        @keyframes cegrad{0%{background-position:0% 50%}100%{background-position:200% 50%}}
+        .ce-grid{
+          position:absolute;inset:0;pointer-events:none;
+          background-image:
+            linear-gradient(rgba(59,130,246,0.08) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(59,130,246,0.08) 1px, transparent 1px);
+          background-size: 48px 48px;
+          mask-image: radial-gradient(ellipse at 70% 50%, black 0%, transparent 75%);
+          -webkit-mask-image: radial-gradient(ellipse at 70% 50%, black 0%, transparent 75%);
+        }
+        .ce-cta{
+          border-bottom:2px solid #FAFAF8;padding-bottom:4px;color:#FAFAF8;
+          transition:border-color .25s,color .25s;
+        }
+        .ce-cta:hover{border-color:#3B82F6;color:#3B82F6}
+      `}</style>
     </article>
   );
 }
@@ -343,9 +371,7 @@ function Contact() {
         <div className="mt-16 grid grid-cols-12 gap-6">
           <div className="col-span-12 md:col-span-7">
             <a href="mailto:anrdh86@gmail.com" className="group block">
-              <span className="display block text-[clamp(1.5rem,5vw,4.5rem)] transition-colors group-hover:text-signal break-all">
-                anrdh86@gmail.com <ArrowUpRight className="ml-2 inline h-7 w-7 align-top" strokeWidth={2} />
-              </span>
+              <span className="display block text-[clamp(1.5rem,5vw,4.5rem)] transition-colors group-hover:text-signal break-all">anrdh86@gmail.com<ArrowUpRight className="ml-2 inline h-7 w-7 align-top" strokeWidth={2} /></span>
             </a>
           </div>
           <div className="col-span-12 grid grid-cols-2 gap-px self-start bg-rule md:col-span-5">
@@ -366,19 +392,40 @@ function Contact() {
 
 // ── FOOTER ────────────────────────────────────────────────────────────────────
 function Footer() {
+  const socials = [
+    { label: "Instagram", handle: "@anrdh86", href: "https://instagram.com/anrdh86" },
+    { label: "X / Twitter", handle: "@anrdh86", href: "https://x.com/anrdh86" },
+    { label: "GitHub", handle: "@anrdh86", href: "https://github.com/anrdh86" },
+    { label: "Email", handle: "anrdh86@gmail.com", href: "mailto:anrdh86@gmail.com" },
+  ];
   return (
-    <footer className="bg-paper">
-      <div className="mx-auto max-w-[1400px] px-6 py-10 md:px-10">
-        <div className="grid grid-cols-12 gap-6 items-center">
-          <div className="col-span-12 flex items-center gap-3 md:col-span-4">
-            <span className="text-ink"><ArkynMark size={20} /></span>
-            <MonoLabel>© 2025 Arkyn Labs</MonoLabel>
+    <footer className="bg-ink text-paper">
+      <div className="mx-auto max-w-[1400px] px-6 py-16 md:px-10 md:py-20">
+        <div className="grid grid-cols-12 gap-6 border-t border-paper/15 pt-6">
+          <div className="col-span-12 md:col-span-3">
+            <span className="font-mono-label !text-paper/60">05 / Social</span>
           </div>
-          <MonoLabel className="col-span-6 md:col-span-4 md:text-center">Designed in the open.</MonoLabel>
+          <h2 className="display col-span-12 text-[clamp(1.75rem,4vw,3.5rem)] md:col-span-9">Follow the signal.</h2>
+        </div>
+        <div className="mt-12 grid grid-cols-1 gap-px bg-paper/15 md:grid-cols-4">
+          {socials.map((s) => (
+            <a key={s.label} href={s.href} target="_blank" rel="noreferrer" className="group flex flex-col gap-3 bg-ink p-6 transition-colors hover:bg-signal">
+              <span className="font-mono-label !text-paper/60 group-hover:!text-paper">{s.label}</span>
+              <div className="flex items-center justify-between">
+                <span className="font-mono text-sm text-paper">{s.handle}</span>
+                <ArrowUpRight className="h-4 w-4 text-paper/60 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-paper" strokeWidth={2.5} />
+              </div>
+            </a>
+          ))}
+        </div>
+        <div className="mt-12 grid grid-cols-12 gap-6 items-center border-t border-paper/15 pt-6">
+          <div className="col-span-12 flex items-center gap-3 md:col-span-4">
+            <span className="text-paper"><ArkynMark size={20} /></span>
+            <span className="font-mono-label !text-paper/60">© 2025 Arkyn Labs</span>
+          </div>
+          <span className="font-mono-label col-span-6 !text-paper/60 md:col-span-4 md:text-center">Designed in the open.</span>
           <div className="col-span-6 md:col-span-4 flex items-center justify-end gap-5">
-            {['Instagram', 'GitHub', 'X'].map((label) => (
-              <a key={label} href="#" className="font-mono-label hover:text-signal"> {label} </a>
-            ))}
+            <a href="https://reelcast-studio.vercel.app/" target="_blank" rel="noreferrer" className="font-mono-label !text-paper/60 hover:!text-signal">Reelcast ↗</a>
           </div>
         </div>
       </div>
