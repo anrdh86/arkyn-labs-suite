@@ -151,41 +151,76 @@ function Marquee() {
 // ── REELCAST CARD ─────────────────────────────────────────────────────────────
 function ReelcastCard() {
   return (
-    <article style={{ background: "#F5F5F0" }} className="border-b border-rule overflow-hidden">
-      <div className="grid grid-cols-1 md:grid-cols-2">
+    <article style={{ background: "#F5F5F0", position: "relative" }} className="border-b border-rule overflow-hidden rc-card">
+      {/* animated neon scan line */}
+      <div className="rc-scan" aria-hidden />
+      <div className="grid grid-cols-1 md:grid-cols-2 relative">
         <div className="flex flex-col justify-between p-10 md:p-14" style={{ borderRight: "1px solid rgba(0,0,0,0.08)" }}>
           <div>
             <div style={{ display: "inline-flex", alignItems: "center", gap: 8, borderRadius: 100, border: "1px solid rgba(0,0,0,0.1)", padding: "7px 16px", marginBottom: 36 }}>
-              <span style={{ width: 7, height: 7, borderRadius: "50%", background: "#AAFF00", boxShadow: "0 0 7px #AAFF00", display: "inline-block", flexShrink: 0, animation: "rcpulse 2s ease-in-out infinite" }} />
+              <span style={{ width: 7, height: 7, borderRadius: "50%", background: "#E8FF00", boxShadow: "0 0 10px #E8FF00, 0 0 18px rgba(232,255,0,0.6)", display: "inline-block", flexShrink: 0, animation: "rcpulse 2s ease-in-out infinite" }} />
               <span className="font-mono-label" style={{ color: "#666" }}>Live — P/01</span>
             </div>
-            <h3 className="display" style={{ fontSize: "clamp(2.2rem,4.5vw,3.8rem)", lineHeight: 0.93, letterSpacing: "-0.04em", color: "#0A0A0A", marginBottom: 10 }}>
-              reelcast<span style={{ color: "#AAFF00" }}>.</span>studio
+            <h3 className="display rc-title" style={{ fontSize: "clamp(2.2rem,4.5vw,3.8rem)", lineHeight: 0.93, letterSpacing: "-0.04em", color: "#0A0A0A", marginBottom: 10 }}>
+              reelcast<span className="rc-dot">.</span>studio
             </h3>
             <p className="font-mono-label" style={{ color: "#999", marginBottom: 24 }}>Video Automation Platform</p>
             <p style={{ fontSize: 15, lineHeight: 1.75, color: "#666", maxWidth: 360, fontWeight: 300 }}>
               Drop a URL. We read the brand, extract the signal, and render a 30-second kinetic motion-graphics promo — instantly.
             </p>
           </div>
-          <a href="https://reelcast-studio.vercel.app/" target="_blank" rel="noreferrer" className="group mt-10 inline-flex items-center gap-2 w-fit"
-            style={{ background: "#0A0A0A", color: "#FAFAF8", padding: "13px 24px", fontFamily: "JetBrains Mono, monospace", fontSize: 11, letterSpacing: "0.1em", textTransform: "uppercase", textDecoration: "none", transition: "background 0.2s" }}
-            onMouseEnter={e => (e.currentTarget.style.background = "#1A4BFF")} onMouseLeave={e => (e.currentTarget.style.background = "#0A0A0A")}>
+          <a href="https://reelcast-studio.vercel.app/" target="_blank" rel="noreferrer" className="group mt-10 inline-flex items-center gap-2 w-fit rc-cta"
+            style={{ background: "#0A0A0A", color: "#FAFAF8", padding: "13px 24px", fontFamily: "JetBrains Mono, monospace", fontSize: 11, letterSpacing: "0.1em", textTransform: "uppercase", textDecoration: "none" }}>
             Open reelcast.studio <ArrowUpRight style={{ width: 14, height: 14 }} strokeWidth={2.5} />
           </a>
         </div>
         <div className="flex flex-col justify-between p-10 md:p-14 relative overflow-hidden" style={{ background: "#EDECEA" }}>
-          <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle, rgba(170,255,0,0.38) 1px, transparent 1px)", backgroundSize: "28px 28px", maskImage: "linear-gradient(to bottom, black 30%, transparent 100%)", WebkitMaskImage: "linear-gradient(to bottom, black 30%, transparent 100%)", pointerEvents: "none" }} />
-          <div style={{ display: "inline-flex", alignItems: "center", gap: 8, borderRadius: 100, border: "1px solid rgba(0,0,0,0.1)", padding: "8px 18px", width: "fit-content", position: "relative" }}>
+          <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle, rgba(232,255,0,0.45) 1px, transparent 1px)", backgroundSize: "28px 28px", maskImage: "linear-gradient(to bottom, black 30%, transparent 100%)", WebkitMaskImage: "linear-gradient(to bottom, black 30%, transparent 100%)", pointerEvents: "none", animation: "rcdrift 14s ease-in-out infinite" }} />
+          <div style={{ display: "inline-flex", alignItems: "center", gap: 8, borderRadius: 100, border: "1px solid rgba(0,0,0,0.1)", padding: "8px 18px", width: "fit-content", position: "relative", background: "rgba(255,255,255,0.4)" }}>
             <span style={{ fontSize: 12 }}>✦</span><span className="font-mono-label" style={{ color: "#888" }}>Paste · Analyze · Watch</span>
           </div>
           <div style={{ position: "relative" }}>
             <p className="display" style={{ fontSize: "clamp(1.7rem,3vw,2.7rem)", lineHeight: 1.06, letterSpacing: "-0.035em", color: "#0A0A0A", marginBottom: 18 }}>
-              Turn any website<br />into a <em style={{ color: "#557700", fontStyle: "italic", fontWeight: 700 }}>motion graphics</em> promo.
+              Turn any website<br />into a <em className="rc-em" style={{ fontStyle: "italic", fontWeight: 700 }}>motion graphics</em> promo.
             </p>
           </div>
         </div>
       </div>
-      <style>{`@keyframes rcpulse{0%,100%{opacity:1}50%{opacity:0.3}}`}</style>
+      <style>{`
+        @keyframes rcpulse{0%,100%{opacity:1}50%{opacity:0.35}}
+        @keyframes rcdrift{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(6px,-4px,0)}}
+        @keyframes rcsweep{
+          0%{transform:translateX(-100%);opacity:0}
+          15%{opacity:1}
+          85%{opacity:1}
+          100%{transform:translateX(100%);opacity:0}
+        }
+        @keyframes rcshine{
+          0%,100%{color:#0A0A0A;text-shadow:none}
+          50%{color:#0A0A0A;text-shadow:0 0 14px rgba(232,255,0,0.55), 0 0 2px rgba(255,255,255,0.9)}
+        }
+        @keyframes rcdotglow{
+          0%,100%{color:#C9DD00;text-shadow:0 0 6px rgba(232,255,0,0.6)}
+          50%{color:#FFFFFF;text-shadow:0 0 18px #E8FF00, 0 0 32px rgba(232,255,0,0.8)}
+        }
+        .rc-scan{
+          position:absolute;top:0;bottom:0;left:0;width:36%;
+          background:linear-gradient(90deg,transparent 0%,rgba(232,255,0,0.18) 45%,rgba(255,255,255,0.55) 50%,rgba(232,255,0,0.18) 55%,transparent 100%);
+          mix-blend-mode:screen;pointer-events:none;
+          animation:rcsweep 6.5s ease-in-out infinite;
+        }
+        .rc-title{animation:rcshine 5s ease-in-out infinite}
+        .rc-dot{animation:rcdotglow 2.4s ease-in-out infinite;display:inline-block}
+        .rc-em{
+          background:linear-gradient(90deg,#557700 0%,#9BB800 50%,#557700 100%);
+          background-size:200% 100%;
+          -webkit-background-clip:text;background-clip:text;color:transparent;
+          animation:rcgrad 6s linear infinite;
+        }
+        @keyframes rcgrad{0%{background-position:0% 50%}100%{background-position:200% 50%}}
+        .rc-cta{transition:background .25s, box-shadow .25s, color .25s}
+        .rc-cta:hover{background:#E8FF00 !important;color:#0A0A0A !important;box-shadow:0 0 0 1px #E8FF00, 0 0 24px rgba(232,255,0,0.55)}
+      `}</style>
     </article>
   );
 }
