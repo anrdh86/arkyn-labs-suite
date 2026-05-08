@@ -392,19 +392,40 @@ function Contact() {
 
 // ── FOOTER ────────────────────────────────────────────────────────────────────
 function Footer() {
+  const socials = [
+    { label: "Instagram", handle: "@anrdh86", href: "https://instagram.com/anrdh86" },
+    { label: "X / Twitter", handle: "@anrdh86", href: "https://x.com/anrdh86" },
+    { label: "GitHub", handle: "@anrdh86", href: "https://github.com/anrdh86" },
+    { label: "Email", handle: "anrdh86@gmail.com", href: "mailto:anrdh86@gmail.com" },
+  ];
   return (
-    <footer className="bg-paper">
-      <div className="mx-auto max-w-[1400px] px-6 py-10 md:px-10">
-        <div className="grid grid-cols-12 gap-6 items-center">
-          <div className="col-span-12 flex items-center gap-3 md:col-span-4">
-            <span className="text-ink"><ArkynMark size={20} /></span>
-            <MonoLabel>© 2025 Arkyn Labs</MonoLabel>
+    <footer className="bg-ink text-paper">
+      <div className="mx-auto max-w-[1400px] px-6 py-16 md:px-10 md:py-20">
+        <div className="grid grid-cols-12 gap-6 border-t border-paper/15 pt-6">
+          <div className="col-span-12 md:col-span-3">
+            <span className="font-mono-label !text-paper/60">05 / Social</span>
           </div>
-          <MonoLabel className="col-span-6 md:col-span-4 md:text-center">Designed in the open.</MonoLabel>
+          <h2 className="display col-span-12 text-[clamp(1.75rem,4vw,3.5rem)] md:col-span-9">Follow the signal.</h2>
+        </div>
+        <div className="mt-12 grid grid-cols-1 gap-px bg-paper/15 md:grid-cols-4">
+          {socials.map((s) => (
+            <a key={s.label} href={s.href} target="_blank" rel="noreferrer" className="group flex flex-col gap-3 bg-ink p-6 transition-colors hover:bg-signal">
+              <span className="font-mono-label !text-paper/60 group-hover:!text-paper">{s.label}</span>
+              <div className="flex items-center justify-between">
+                <span className="font-mono text-sm text-paper">{s.handle}</span>
+                <ArrowUpRight className="h-4 w-4 text-paper/60 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-paper" strokeWidth={2.5} />
+              </div>
+            </a>
+          ))}
+        </div>
+        <div className="mt-12 grid grid-cols-12 gap-6 items-center border-t border-paper/15 pt-6">
+          <div className="col-span-12 flex items-center gap-3 md:col-span-4">
+            <span className="text-paper"><ArkynMark size={20} /></span>
+            <span className="font-mono-label !text-paper/60">© 2025 Arkyn Labs</span>
+          </div>
+          <span className="font-mono-label col-span-6 !text-paper/60 md:col-span-4 md:text-center">Designed in the open.</span>
           <div className="col-span-6 md:col-span-4 flex items-center justify-end gap-5">
-            {['Instagram', 'GitHub', 'X'].map((label) => (
-              <a key={label} href="#" className="font-mono-label hover:text-signal"> {label} </a>
-            ))}
+            <a href="https://reelcast-studio.vercel.app/" target="_blank" rel="noreferrer" className="font-mono-label !text-paper/60 hover:!text-signal">Reelcast ↗</a>
           </div>
         </div>
       </div>
