@@ -11,19 +11,29 @@ export const Route = createFileRoute("/")(({
 }) as any);
 
 // ── TRIANGULAR LOGO MARK ─────────────────────────────────────────────────────
+// Two interlocking triangles forming a subtle "A" — apex marked with a signal dot.
 function ArkynMark({ size = 28 }: { size?: number }) {
   return (
     <svg
       width={size}
       height={size}
-      viewBox="0 0 28 28"
+      viewBox="0 0 32 32"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       aria-label="Arkyn Labs"
     >
-      <polygon points="14,3 27,25 1,25" fill="currentColor" />
-      <polygon points="14,9 22.2,23 5.8,23" fill="var(--paper, #FAFAF8)" />
-      <line x1="9.2" y1="19" x2="18.8" y2="19" stroke="currentColor" strokeWidth="2.4" />
+      {/* outer triangle outline */}
+      <polygon
+        points="16,3 30,28 2,28"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinejoin="miter"
+      />
+      {/* inner inverted triangle — solid */}
+      <polygon points="16,28 23,16 9,16" fill="currentColor" />
+      {/* signal dot at apex */}
+      <circle cx="16" cy="3" r="1.6" fill="var(--signal, #FF3B1F)" />
     </svg>
   );
 }
