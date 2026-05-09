@@ -356,31 +356,21 @@ function Approach() {
 }
 // ── CONTACT ───────────────────────────────────────────────────────────────────
 function Contact() {
-  const rows = [
-    { k: "Founder", v: "Anirudh Singh Rathore", href: null },
-    { k: "Email", v: "anrdh86@gmail.com", href: "mailto:anrdh86@gmail.com" },
-    { k: "Studio", v: "Independent · India", href: null },
-    { k: "Reelcast", v: "reelcast-studio.vercel.app", href: "https://reelcast-studio.vercel.app/" },
-  ];
   return (
     <section id="contact" className="border-b border-rule">
       <div className="mx-auto max-w-[1400px] px-6 py-20 md:px-10 md:py-28">
         <SectionHeader index="04 / Contact" kicker="Say hello" title="Let's build something precise." />
         <div className="mt-16 grid grid-cols-12 gap-6">
-          <div className="col-span-12 md:col-span-7">
-            <a href="mailto:anrdh86@gmail.com" className="group block">
-              <span className="display block text-[clamp(1.5rem,5vw,4.5rem)] transition-colors group-hover:text-signal break-all">anrdh86@gmail.com<ArrowUpRight className="ml-2 inline h-7 w-7 align-top" strokeWidth={2} /></span>
-            </a>
+          <div className="col-span-12 md:col-span-2">
+            <MonoLabel>Direct</MonoLabel>
           </div>
-          <div className="col-span-12 grid grid-cols-2 gap-px self-start bg-rule md:col-span-5">
-            {rows.map((row) => (
-              <div key={row.k} className="bg-paper p-5">
-                <MonoLabel>{row.k}</MonoLabel>
-                {row.href ? (
-                  <a href={row.href} target="_blank" rel="noreferrer" className="mt-2 block font-mono text-sm text-ink hover:text-signal transition-colors">{row.v}</a>
-                ) : ( <p className="mt-2 font-mono text-sm text-ink">{row.v}</p> )}
-              </div>
-            ))}
+          <div className="col-span-12 md:col-span-10">
+            <a href="mailto:anrdh86@gmail.com" className="group block">
+              <span className="display block text-[clamp(1.75rem,6vw,5rem)] transition-colors group-hover:text-signal break-all">anrdh86@gmail.com<ArrowUpRight className="ml-2 inline h-7 w-7 align-top" strokeWidth={2} /></span>
+            </a>
+            <p className="mt-6 max-w-xl text-base leading-relaxed text-ink/70 md:text-lg">
+              For collaborations, product enquiries, or to join the Config-Engine waitlist — write directly. Replies in 24–48h.
+            </p>
           </div>
         </div>
       </div>
