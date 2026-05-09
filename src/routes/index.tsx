@@ -359,9 +359,7 @@ function Contact() {
   const rows = [
     { k: "Founder", v: "Anirudh Singh Rathore", href: null },
     { k: "Email", v: "anrdh86@gmail.com", href: "mailto:anrdh86@gmail.com" },
-    { k: "Instagram", v: "@anrdh86", href: "https://instagram.com/anrdh86" },
-    { k: "GitHub", v: "@anrdh86", href: "https://github.com/anrdh86" },
-    { k: "X / Twitter", v: "@anrdh86", href: "https://x.com/anrdh86" },
+    { k: "Studio", v: "Independent · India", href: null },
     { k: "Reelcast", v: "reelcast-studio.vercel.app", href: "https://reelcast-studio.vercel.app/" },
   ];
   return (
